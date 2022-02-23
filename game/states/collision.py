@@ -1,3 +1,4 @@
+from game.gameLogic.score import Score
 class Collision:
     """ 
         dtects if the player hits a rock or a gem 
@@ -8,21 +9,34 @@ class Collision:
         Author:Vadim
     """
 
-    def __init__(self):
-        self
+    def __init__(self,characters,score,points):
+        self._characters = characters
+        self._score = score
+        self._points = points
 
-    def _do_updates(self, cast, score):
-        """Updates the player's position and resolves any collisions with characters.
+    def check_collision(self):
+        """Checks if the player is colliding with an object.
 
         Args:
-            cast (Cast): The cast of characters."""
-
-        player = cast.get_first_character("player")
-        gems = cast.get_characters("gems")
-        rocks = cast.get_characters("rocks")
+            self (self): The cast of characters."""
+        
+        score = Score(self._points)
+        
+        player = self.characters.get_first_character("player")
+        gems = self.characters.get_characters("gems")
+        rocks = self.characters.get_characters("rocks")
 
         for gem in gems:
-            if player.get_position().equals(gem.get_position()):
-                score.lose_point()
-            elif player.get_position().equals(rocks.get_position()):
-                score.earn_point()
+            if self.__is_colliding(player,gem):
+                self._score = score.earn_point(self._score)
+        
+        for rock in rocks:
+            if self.__is_colliding(player,rock):
+                self._score = score.lose_point(self._score)          
+    
+    def __is_colliding(self,player,character):
+        if character.equals(character.get_position(),player.get_position()):
+            return True
+    
+    def get_score(self):
+        return self._score
