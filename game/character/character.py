@@ -11,3 +11,15 @@ class Character(Position):
         _fontsize : the size of the character
     Author:Yami
     """
+
+    
+ROCKS = 40
+GEMS = 30
+
+
+def gems(self):
+
+    #or i in range(GEMS):
+
+    return
+
