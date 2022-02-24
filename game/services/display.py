@@ -37,3 +37,7 @@ class Display:
 
     def draw_character(self,item):
         pyray.draw_text(item.get_appearance(),item.get_x_position(),item.get_y_position(), item.get_font_size(),item.get_color())
+
+    def draw_all_characters(self,characters):
+        for character in characters:
+            self.draw_character(character)

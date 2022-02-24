@@ -1,5 +1,7 @@
 from  game.states.collision import Collision
 from  game.services.keyboard import Keyboard
+from  game.states.physics import Physics
+
 class Director:
     """ 
         All the parts of the game are managed in this file
@@ -8,12 +10,14 @@ class Director:
             _display (Display)
         author: Samuel Beltran
     """
-    def __init__(self,characters,display,score,points):
+    def __init__(self,characters,display,score,points,scale,gravity):
         
         self._characters = characters
         self._display = display
         self._score = score
         self._points = points
+        self._scale = scale
+        self._gravity = gravity
     
     def start_game(self):
         
@@ -46,8 +50,10 @@ class Director:
 
     def __update(self):
         player = self._characters.get_character("player")
-        # collision = Collision(self._characters,self._score).check_collision()
+        #collision = Collision(self._characters,self._score).check_collision()
         # self._score = collision.get_score()
+        physics = Physics(self._characters,self._display,self._scale,self._gravity)
+        physics.move_gem()
         self._display.draw_character(player[0])
         
 
