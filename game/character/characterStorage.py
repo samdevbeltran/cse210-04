@@ -4,8 +4,8 @@ class CharacterStorage:
         self._characters = {}
     
     def add_new_character(self,group,character):
-        if not group in character.keys():
-            self._characters[character.get_character_name()] = []
+        if not group in self._characters.keys():
+            self._characters[character.get_group_name()] = []
 
         if not character in self._characters[group]:
             self._characters[group].append(character)

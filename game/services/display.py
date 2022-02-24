@@ -1,4 +1,6 @@
 import pyray
+
+#from __main__ import WHITE_COLOR
 class Display:
     """ 
         Display class will be will be in charge of showing all the elements of the game
@@ -34,4 +36,4 @@ class Display:
         pyray.end_drawing()
 
     def draw_character(self,item):
-        pyray.draw_text(item.get_appearance,item.get_x_position,item.get_y_position, item.get_fontsize,item.get_color)
+        pyray.draw_text(item.get_appearance(),item.get_x_position(),item.get_y_position(), item.get_font_size(),item.get_color())

@@ -8,6 +8,7 @@ class Director:
         author: Samuel Beltran
     """
     def __init__(self,characters,display,score,points):
+        
         self._characters = characters
         self._display = display
         self._score = score
@@ -15,13 +16,15 @@ class Director:
     
     def start_game(self):
         
+        # player = self._characters.get_character("player")
+        # print(player[0].get_group_name())
         self._display.open_window()
         
         while self._display.is_playing():
             self._display.start_drawing()
-            self.__input_player()
+            # self.__input_player()
             self.__update()
-            self.__result()
+            # self.__result()
             self._display.stop_drawing()
         self._display.close_window()
 
@@ -35,8 +38,10 @@ class Director:
         print("it will work soon")
 
     def __update(self):
-        collision = Collision(self._characters,self._score).check_collision()
-        self._score = collision.get_score()
+        player = self._characters.get_character("player")
+        # collision = Collision(self._characters,self._score).check_collision()
+        # self._score = collision.get_score()
+        self._display.draw_character(player[0])
 
     def __result(self):
         print("here the result will be display")
