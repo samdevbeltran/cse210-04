@@ -7,3 +7,11 @@ class Score:
             _final_score (int) : the score after the calculation
         Author: Karras        
     """
+    def __init__(self,points):
+        self._points = points
+    
+    def earn_point(self,score):
+        return self._points + score
+    
+    def lose_point(self,score): 
+        return self._points - score

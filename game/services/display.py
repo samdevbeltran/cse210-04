@@ -9,14 +9,16 @@ class Display:
         Author:  Samuel Beltran
 
     """
-    def __init__(self,width,height,gameName):
+    def __init__(self,width,height,gameName,frameNumber):
         self._width = width
         self._height = height
         self._game_name = gameName
+        self._frame_nummber = frameNumber
         
 
     def open_window(self):
         pyray.init_window(self._width, self._height, self._game_name)
+        pyray.set_target_fps(self._frame_nummber)
 
     def close_window(self):
         pyray.close_window()
