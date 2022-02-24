@@ -6,12 +6,13 @@ class Position:
     _y (int) : this is the position in y
     Author:Karras
     """
-    def __init__(self,x,y):
+    def __init__(self,x,y,scale):
       self._x = x
       self._y = y  
+      self._scale = scale
     
     def set_x_position(self,x):
-        self._X = x
+        self._x = x
     
     def set_y_position(self,y):
         self._y = y
@@ -28,3 +29,9 @@ class Position:
     def equals(self,charcterA,charcterB):
         if charcterA.get_x_position() == charcterB.get_x_position() and charcterA.get_y_position() == charcterB.get_y_position():
             return True
+            
+    def scale_x_position(self,xdirection):
+        if xdirection > 0:
+            return self._scale
+        elif xdirection < 0:
+            return - self._scale

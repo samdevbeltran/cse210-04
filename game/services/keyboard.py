@@ -25,9 +25,6 @@ class Keyboard:
             
             if pyray.is_key_down(pyray.KEY_RIGHT):
                 dx = 1
-            
-            direction = Position(dx, dy)
-            direction = direction.scale(self._size)
-            
-            return direction
+
+            return dx
 

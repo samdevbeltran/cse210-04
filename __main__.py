@@ -15,11 +15,12 @@ GAME_SCORE = 0
 GAME_POINTS = 10
 WHITE_COLOR = (255,255,255,255)
 CELL_SIZE = 15
+SCALE = 15
 
 def main():
-    gem = Actor("*","gem",12,13,12)
-    rock = Actor("0","rock",12,13,12)
-    player = Actor("#","player",int(X_WIDTH / 2),(Y_HEIGHT - CELL_SIZE),12,WHITE_COLOR)
+    gem = Actor("*","gem",12,13,12,SCALE)
+    rock = Actor("0","rock",12,13,12,SCALE)
+    player = Actor("#","player",int(X_WIDTH / 2),(Y_HEIGHT - CELL_SIZE),12,SCALE,WHITE_COLOR)
     
     # print("gem: ",gem.get_group_name())
     # print("rock: ",rock.get_group_name())
