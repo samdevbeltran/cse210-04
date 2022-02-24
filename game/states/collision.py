@@ -1,3 +1,4 @@
+
 class Collision:
     """ 
         dtects if the player hits a rock or a gem 
