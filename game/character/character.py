@@ -1,7 +1,7 @@
 from turtle import color
 from typing_extensions import Self
-from game.Vadim import Color
-from game.character import Point
+from game.states import color
+
 import random
 
 class Character:
@@ -20,7 +20,7 @@ class Character:
         self._gems = ""
         self._rocks = ""
 
-        banner = Color
+        banner = color
         banner.set_gems_color(color)
         banner.set_rocks_color(color)
     
