@@ -16,7 +16,7 @@ class Character:
     """
 
     
-    def __init__(self):
+    def __init__(self,appearence):
         self._gems = ""
         self._rocks = ""
 
@@ -24,13 +24,13 @@ class Character:
         banner.set_gems_color(color)
         banner.set_rocks_color(color)
     
-def create_gems(self):
-    self._gems = "*"
-    self._gems.set_gems_color(color)
-    return self.gems
+    def create_gems(self):
+        self._gems = "*"
+        self._gems.set_gems_color(color)
+        return self.gems
 
 
-def create_rocks(self):
-    self._rocks = "O"
-    self._rocks.set_rocks_color(color)
-    return self._rocks
+    def create_rocks(self):
+        self._rocks = "O"
+        self._rocks.set_rocks_color(color)
+        return self._rocks

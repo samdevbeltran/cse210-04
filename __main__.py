@@ -4,6 +4,7 @@
 """
 from game.gameControl.director import Director
 from game.services.display import Display
+from game.character.character import Character
 
 X_WIDTH = 700
 Y_HEIGHT = 600
@@ -11,7 +12,9 @@ GAME_NAME = "Greed"
 FRAME_NUMBER = 12
 GAME_SCORE = 0  
 GAME_POINTS = 10
+
 def main():
+    gem = Character()
     display = Display(X_WIDTH,Y_HEIGHT,GAME_NAME,FRAME_NUMBER,GAME_POINTS)
     director = Director("samuel",display,GAME_SCORE)
     director.start_game()
