@@ -4,7 +4,7 @@ import random
 from game.character.character import Character
 from game.states.color import Color
 from game.character.position import Position
-from game.character.cast import Cast
+from game.character.characterStorage import CharacterStorage
 
 COLS = 60
 ROWS = 40
@@ -12,7 +12,7 @@ CELL_SIZE = 15
 FONT_SIZE = 15
 
 
-class FallingGemsRocks:
+class Physics:
     """This will generates the falling down of the rocks and the gems """
 
     def __init__(self, video_service):
@@ -31,7 +31,7 @@ class FallingGemsRocks:
         position = position.scale(CELL_SIZE)
 
     def move_gem(self):
-        cast = Cast()
+        chStorage = CharacterStorage()
 
         # changes the position of gem to 1 size of gem
         text = "*"
