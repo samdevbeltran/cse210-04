@@ -1,25 +1,36 @@
-from character.position import Position
+from turtle import color
+from typing_extensions import Self
+from game.Vadim import Color
+from game.character import Point
+import random
 
-class Character(Position):
+class Character:
     """ 
     this will create a character,it could be either a gem or a rock 
     Attributes:
-        _x_position (int) : position in x
-        _y_position : position in y
-        _appearance : how the character will look like
-        _color : the color of the character
-        _fontsize : the size of the character
+       
+        _gems("") : the appearence of the gems
+        _rocks("" : the appearence of the rocks
+     
     Author:Yami
     """
 
     
-ROCKS = 40
-GEMS = 30
+    def __init__(self):
+        self._gems = ""
+        self._rocks = ""
+
+        banner = Color
+        banner.set_gems_color(color)
+        banner.set_rocks_color(color)
+    
+def create_gems(self):
+    self._gems = "*"
+    self._gems.set_gems_color(color)
+    return self.gems
 
 
-def gems(self):
-
-    #or i in range(GEMS):
-
-    return
-
+def create_rocks(self):
+    self._rocks = "O"
+    self._rocks.set_rocks_color(color)
+    return self._rocks
