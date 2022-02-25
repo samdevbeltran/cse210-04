@@ -16,7 +16,4 @@ class CharacterStorage:
     def get_character(self,group):
         if group in self._characters.keys():
             return self._characters[group]
-    
-    # def set_character(self,group):
-    #     if group in self._characters.keys():
             

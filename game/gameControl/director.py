@@ -1,6 +1,9 @@
 from  game.states.collision import Collision
 from  game.services.keyboard import Keyboard
 from  game.states.physics import Physics
+from game.character.actor import Actor
+import random
+
 
 class Director:
     """ 
@@ -10,23 +13,30 @@ class Director:
             _display (Display)
         author: Samuel Beltran
     """
-    def __init__(self,characters,display,score,points,scale,gravity):
+    def __init__(self,characters,display,specificaions):
         
         self._characters = characters
         self._display = display
-        self._score = score
-        self._points = points
-        self._scale = scale
-        self._gravity = gravity
+        self._specifications = specificaions
     
     def start_game(self):
         
-        # player = self._characters.get_character("player")
-        # print(player[0].get_group_name())
+        cols = self._specifications["cols"]
+        cell = self._specifications["cell_size"]
+        fontsize = self._specifications["font_size"]
+        scale = self._specifications["scale"]
+
         self._display.open_window()
         player = self._characters.get_character("player")[0]
-
+        
         while self._display.is_playing():
+
+            rock = Actor("0","rock",random.randint(1,cols * (cell+scale)),0,fontsize,scale)
+            gem = Actor("*","gem",random.randint(1,cols * (cell+scale)),0,fontsize,scale)
+        
+            self._characters.add_new_character(rock.get_group_name(),rock)
+            self._characters.add_new_character(gem.get_group_name(),gem)    
+            
             self._display.start_drawing()
             self.__input_player(player)
             self.__update()
@@ -52,9 +62,13 @@ class Director:
         player = self._characters.get_character("player")
         #collision = Collision(self._characters,self._score).check_collision()
         # self._score = collision.get_score()
-        physics = Physics(self._characters,self._display,self._scale,self._gravity)
-        physics.move_gem()
+        physics = Physics(self._characters,self._display,self._specifications["scale"],self._specifications["gravity"])
         self._display.draw_character(player[0])
+        
+        physics.move_gem()
+        physics.move_rock()
+        
+        
         
 
     def __result(self):
