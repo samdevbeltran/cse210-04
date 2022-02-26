@@ -4,7 +4,8 @@ from game.character.position import Position
 class Keyboard:
     """ 
     the keyboard class will get the players input and calculate the new position of the players character 
-    cell_size (int): For scaling directional input to a grid.
+        Attribute:
+            _size (int): size of a cell
     Author:Yami
     """
 
@@ -15,16 +16,26 @@ class Keyboard:
 
 
     def get_direction(self):
-            """Gets the selected direction based on the currently pressed keys."""
+        """Gets the selected direction based on the currently pressed keys.
 
-            dx = 0
-            dy = 0
+            return: int
+        """
 
-            if pyray.is_key_down(pyray.KEY_LEFT):
-                dx = -1
-            
-            if pyray.is_key_down(pyray.KEY_RIGHT):
-                dx = 1
+        dx = 0
+        dy = 0
 
-            return dx
+        if pyray.is_key_down(pyray.KEY_LEFT):
+            dx = -1
+        
+        if pyray.is_key_down(pyray.KEY_RIGHT):
+            dx = 1
+
+        return dx
+
+    def get_key_board(self):
+        """ It checks the key that was pressed
+        
+            return: boolean
+        """
+        return pyray.is_key_down(pyray.KEY_A)
 

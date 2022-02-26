@@ -18,18 +18,20 @@ The project files and folders are organized as follows:
 root                    
   +-- game
     +--character
-        +--position.py          (calculates a position)
+        +--actor.pay            (creates an actor based in character class)
         +--character.py         (creates a character) 
-    +--states
-        +--physics.py           (Generates the physics of the game)
-        +--collision.py         (Detects if there is a collision)
+        +--characterStorage.py  (Storage characters)
+        +--position.py          (calculates a position)
     +--gameControl
         +--director.py          (Controls every part of the game)
+    +--gameLogic
+        +--score.py             (Calculates the score)
     +--services
         +--keyboard.py          (Reads players input)
         +--display.py           (Rendering of the game)
-    +--gameLogic
-        +--score.py             (Calculates the score)
+    +--states
+        +--physics.py           (Generates the physics of the game)
+        +--collision.py         (Detects if there is a collision)
 +-- __main__.py                 (entry point for program)
 +-- README.md                   (general info)
 ```

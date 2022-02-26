@@ -2,16 +2,20 @@ class Score:
     """ 
         this will add or substract to the players score 
         Attributes:
-            _is_gem (bool) : The attribute will let us know if the player earn or loses points
-            _original_score (int) : the original score
-            _final_score (int) : the score after the calculation
+            __points (int) : The number of points
         Author: Karras        
     """
     def __init__(self,points):
         self._points = points
     
     def earn_point(self,score):
-        return self._points + score
+        """ Adds points to the actual score
+            return: int
+        """
+        return score + self._points 
     
     def lose_point(self,score): 
-        return self._points - score
+        """ Substract from the actual score 
+            return int
+        """
+        return score - self._points 

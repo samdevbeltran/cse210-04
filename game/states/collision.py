@@ -1,15 +1,12 @@
-
-
 from game.gameLogic.score import Score
-
 
 class Collision:
     """ 
         dtects if the player hits a rock or a gem 
         Attributes:
             _characters (dict) : Dictionary of characters
-            _player (Player) : the player
             _score (Score) : Instance of score
+            _points (int) : the number of points
         Author:Vadim
     """
 
@@ -25,12 +22,11 @@ class Collision:
             self (self): The cast of characters."""
 
         score = Score(self._points)
+        player = self._characters.get_character("player")[0]
+        gems = self._characters.get_character("gem")
+        rocks = self._characters.get_character("rock")
 
-        player = self.characters.get_first_character("player")
-        gems = self.characters.get_characters("gems")
-        rocks = self.characters.get_characters("rocks")
-
-        for gem in gems:
+        for gem in gems:            
             if self.__is_colliding(player, gem):
                 self._score = score.earn_point(self._score)
 
@@ -39,8 +35,14 @@ class Collision:
                 self._score = score.lose_point(self._score)
 
     def __is_colliding(self, player, character):
+        """ Evaluates if the player has the same position as the current character
+            return: bool
+        """
         if character.equals(character.get_position(), player.get_position()):
             return True
 
     def get_score(self):
+        """ Gets the score
+            return: int
+        """
         return self._score
